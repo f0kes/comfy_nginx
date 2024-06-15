@@ -4,6 +4,7 @@ services:
   pytorch:
     image: pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel # Replace with the actual image name from Docker Hub
     container_name: pytorch
+    command: tail -f /dev/null
     volumes:
       - ../workspace:/workspace
     restart: always
