@@ -4,7 +4,7 @@ services:
   pytorch:
     image: pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel # Replace with the actual image name from Docker Hub
     container_name: pytorch
-    command: -f /dev/null
+    command: echo "PyTorch container is running"
     volumes:
       - ../workspace:/workspace
     restart: always
