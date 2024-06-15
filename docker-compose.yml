@@ -21,7 +21,7 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/htpasswd:/etc/nginx/.htpasswd
+      - ./nginx/.htpasswd:/etc/nginx/.htpasswd
     restart: always
     ports:
       - "4242:80"
