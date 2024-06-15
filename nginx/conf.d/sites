@@ -1,5 +1,5 @@
 upstream comfyui {
-    server comfyui:8188;
+    server comfyui:4000;
 }
 
 upstream jupyter {
