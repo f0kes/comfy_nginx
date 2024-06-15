@@ -22,7 +22,8 @@ services:
     volumes:
       - ../workspace:/workspace
     restart: always
-    ports: -"4000:80"
+    ports:
+      - "4000:80"
     environment:
       - PROXY_MODE=true
     deploy:
