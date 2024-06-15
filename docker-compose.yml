@@ -6,6 +6,7 @@ services:
     container_name: pytorch
     volumes:
       - ../workspace:/workspace
+    restart: always
     ports:
       - "8188:8188"
       - "8888:8888"
@@ -21,8 +22,8 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/htpasswd:/etc/nginx/.htpasswd
+    restart: always
     ports:
-      - "4242:80" 
+      - "4242:80"
     depends_on:
       - pytorch
-
