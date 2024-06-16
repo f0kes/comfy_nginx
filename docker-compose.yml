@@ -17,10 +17,12 @@ services:
             - capabilities: [ gpu ]
     tty: true
   comfyui:
-    image: thecooltechguy/comfyui_launcher:latest
+    build:
+      context: ./ComfyUI-Launcher/
+      dockerfile: Dockerfile
     container_name: comfyui
     volumes:
-      - ../workspace:/workspace
+      - ../workspace/comfyui_launcher:/app
     restart: always
     ports:
       - "4000-4100:4000-4100"
@@ -29,6 +31,8 @@ services:
         reservations:
           devices:
             - capabilities: [ gpu ]
+    environment:
+      - PROXY_MODE=true
   nginx:
     image: nginx:latest
     container_name: nginx
