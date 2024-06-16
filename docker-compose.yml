@@ -23,9 +23,7 @@ services:
       - ../workspace:/workspace
     restart: always
     ports:
-      - "4000:80"
-    environment:
-      - PROXY_MODE=true
+      - "4000-4100:4000-4100"
     deploy:
       resources:
         reservations:
