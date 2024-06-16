@@ -16,9 +16,9 @@ services:
           devices:
             - capabilities: [ gpu ]
     tty: true
-  comfyui_launcher:
+  comfyui:
     image: thecooltechguy/comfyui_launcher:latest
-    container_name: comfyui_launcher
+    container_name: comfyui
     volumes:
       - ../workspace:/workspace
     restart: always
@@ -42,4 +42,4 @@ services:
     ports:
       - "4242:80"
     depends_on:
-      - comfyui_launcher
+      - comfyui
