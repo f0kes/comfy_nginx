@@ -20,7 +20,6 @@ services:
     build:
       context: ./ComfyUI-Launcher/
       dockerfile: Dockerfile
-
     container_name: comfyui
     volumes:
       - ../workspace/comfyui_launcher/models:/app/server/models
