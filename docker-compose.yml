@@ -20,9 +20,11 @@ services:
     build:
       context: ./ComfyUI-Launcher/
       dockerfile: Dockerfile
+
     container_name: comfyui
-    #volumes:
-    #  - ../workspace/comfyui_launcher:/app
+    volumes:
+      - ../workspace/comfyui_launcher/models:/app/server/models
+      - ../workspace/comfyui_launcher/projects:/app/server/projects
     restart: always
     ports:
       - "4000-4100:4000-4100"
