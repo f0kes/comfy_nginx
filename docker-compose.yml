@@ -51,7 +51,7 @@ services:
       - TZ=EEST
     volumes:
       - /home/f0kes/workspace/syncthing/config:/config
-      - /home/f0kes/workspace/syncthing/sync:/sync # adjust to your sync folder path
+      - ../workspace:/data
     ports:
       - 8384:8384 # Syncthing GUI port
       - 22000:22000 # Syncthing protocol port
