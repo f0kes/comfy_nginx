@@ -51,7 +51,9 @@ services:
       - TZ=EEST
     volumes:
       - /home/f0kes/workspace/syncthing/config:/config
-      - ../workspace/comfyui_launcher:/data
+      - ../workspace/comfyui_launcher/models:/models
+      - ../workspace/comfyui_launcher/input:/input
+      - ../workspace/comfyui_launcher/output:/output
     ports:
       - 8384:8384 # Syncthing GUI port
       - 22000:22000 # Syncthing protocol port
