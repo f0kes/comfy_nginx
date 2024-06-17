@@ -43,6 +43,7 @@ services:
   syncthing:
     image: linuxserver/syncthing
     container_name: syncthing
+    hostname: syncthing
     restart: unless-stopped
     environment:
       - PUID=1001
