@@ -98,4 +98,5 @@ services:
     environment:
       - NODE_ENV=development
     depends_on:
-      - comfyui, anim_backend
+      - comfyui
+      - anim_backend
