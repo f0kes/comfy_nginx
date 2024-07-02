@@ -71,3 +71,31 @@ services:
     depends_on:
       - comfyui
       - syncthing
+  anim_backend:
+    build:
+      context: ./fil_anim_starter/backend
+      dockerfile: Dockerfile
+    container_name: anim_backend
+    volumes:
+      - ../workspace/anim_backend:/app
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - comfyui
+  anim_frontend:
+    build:
+      context: ./fil_anim_starter/frontend/svelte-frontend
+      dockerfile: Dockerfile
+    container_name: anim_frontend
+    volumes:
+      - ../workspace/anim_frontend:/app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - comfyui, anim_backend
