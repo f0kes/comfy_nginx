@@ -92,8 +92,7 @@ services:
       context: ./fil_anim_starter/frontend/svelte-frontend
       dockerfile: Dockerfile
     container_name: anim_frontend
-    volumes:
-      - ../workspace/anim_frontend:/app
+    
     restart: always
     ports:
       - "3000:3000"
