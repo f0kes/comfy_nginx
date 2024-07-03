@@ -71,6 +71,8 @@ services:
     depends_on:
       - comfyui
       - syncthing
+      - anim_backend
+      - anim_frontend
   anim_backend:
     build:
       context: ./fil_anim_starter/backend
