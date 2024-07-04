@@ -1,5 +1,9 @@
 version: '3.8'
 
+volumes:
+  app-dist:
+
+
 services:
   pytorch:
     image: pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel # Replace with the actual image name from Docker Hub
