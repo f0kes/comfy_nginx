@@ -58,6 +58,23 @@ services:
       - 8384:8384 # Syncthing GUI port
       - 22000:22000 # Syncthing protocol port
       - 21027:21027/udp # Syncthing discovery port
+  anim_frontend:
+    build:
+      context: ./fil_anim_starter/frontend/svelte-frontend
+      dockerfile: Dockerfile
+    container_name: anim_frontend
+
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - app-dist:/app/dist
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - comfyui
+      - anim_backend
+
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -88,19 +105,3 @@ services:
       - FLASK_ENV=development
     depends_on:
       - comfyui
-  anim_frontend:
-    build:
-      context: ./fil_anim_starter/frontend/svelte-frontend
-      dockerfile: Dockerfile
-    container_name: anim_frontend
-
-    restart: always
-    ports:
-      - "3000:3000"
-    volumes:
-      - app-dist:/app/dist
-    environment:
-      - NODE_ENV=development
-    depends_on:
-      - comfyui
-      - anim_backend
