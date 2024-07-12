@@ -5,23 +5,6 @@ volumes:
 
 
 services:
-  pytorch:
-    image: pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel # Replace with the actual image name from Docker Hub
-    container_name: pytorch
-    volumes:
-      - ../workspace:/workspace
-    restart: always
-    ports:
-      - "8188:8188"
-      - "8888:8888"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [ gpu ]
-    tty: true
   comfyui:
     build:
       context: ./ComfyUI-Launcher/
