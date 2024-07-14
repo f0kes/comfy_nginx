@@ -84,7 +84,7 @@ services:
       dockerfile: Dockerfile
     container_name: anim_backend
     volumes:
-      - ../workspace/anim_backend:/app
+      - ../workspace/anim_backend:/data
     restart: always
     ports:
       - "5000:5000"
