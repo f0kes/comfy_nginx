@@ -47,7 +47,7 @@ services:
       - 21027:21027/udp # Syncthing discovery port
   anim_frontend:
     build:
-      context: ./fil_anim_starter/frontend/svelte-frontend
+      context: ./fil_anim_starter/frontend/sveltekit
       dockerfile: Dockerfile
     container_name: anim_frontend
 
