@@ -94,3 +94,17 @@ services:
       - FLASK_RUN_HOST=0.0.0.0
     depends_on:
       - comfyui
+  flux_comfy:
+    image: yanwk/comfyui-boot:cu121
+    container_name: flux_comfy
+    volumes: -../workspace/flux_comfy:/home/runner
+    restart: always
+    ports:
+      - "8188:8188"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
