@@ -97,7 +97,8 @@ services:
   flux_comfy:
     image: yanwk/comfyui-boot:cu121
     container_name: flux_comfy
-    volumes: -../workspace/flux_comfy:/home/runner
+    volumes: 
+      - ../workspace/flux_comfy:/home/runner
     restart: always
     ports:
       - "8188:8188"
