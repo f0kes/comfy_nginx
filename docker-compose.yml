@@ -109,4 +109,15 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [ gpu ]
-  
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    depends_on:
+      - ollama
+    ports:
+      - "2765:8080"
+    volumes:
+      - ../workspace/owebui:/app/backend/data
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
