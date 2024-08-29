@@ -61,7 +61,6 @@ services:
     depends_on:
       - comfyui
       - anim_backend
-
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -95,14 +94,14 @@ services:
       - FLASK_RUN_HOST=0.0.0.0
     depends_on:
       - comfyui
-  flux_comfy:
-    image: yanwk/comfyui-boot:cu121
-    container_name: flux_comfy
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
     volumes:
-      - ../workspace/flux_comfy:/home/runner
+      - ../workspace/ollama:/root/.ollama
     restart: always
     ports:
-      - "8188:8188"
+      - "11434:11434"
     deploy:
       resources:
         reservations:
@@ -110,3 +109,4 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [ gpu ]
+  
