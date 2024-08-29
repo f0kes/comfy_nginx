@@ -85,6 +85,7 @@ services:
     container_name: anim_backend
     volumes:
       - ../workspace/anim_backend:/data
+      - ../workspace/comfyui_launcher:/app/server
     restart: always
     ports:
       - "5000:5000"
@@ -97,7 +98,7 @@ services:
   flux_comfy:
     image: yanwk/comfyui-boot:cu121
     container_name: flux_comfy
-    volumes: 
+    volumes:
       - ../workspace/flux_comfy:/home/runner
     restart: always
     ports:
