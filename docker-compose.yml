@@ -123,22 +123,4 @@ services:
       - NEXT_PUBLIC_BASE_PATH=/chat
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  3d:
-    build: 
-      context: ./ComfyUI-3D-Pack
-      dockerfile: Dockerfile
-    container_name: 3d
-    volumes:
-      - ../workspace/comfyui_launcher/models:/app/ComfyUI/models
-      - ../workspace/comfyui_launcher/input:/app/ComfyUI/input
-      - ../workspace/comfyui_launcher/output:/app/ComfyUI/output
-    restart: always
-    ports:
-      - "4325:8080"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [ gpu ]
+  
