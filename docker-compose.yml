@@ -77,6 +77,9 @@ services:
       - syncthing
       - anim_backend
       - anim_frontend
+    networks:
+      - default
+      - shared-network
   anim_backend:
     build:
       context: ./fil_anim_starter/backend
@@ -123,4 +126,7 @@ services:
       - NEXT_PUBLIC_BASE_PATH=/chat
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  
+
+networks:
+  shared-network:
+    external: true
